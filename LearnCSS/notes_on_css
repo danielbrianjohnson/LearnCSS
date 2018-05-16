@@ -1,0 +1,579 @@
+CSS reference - codrops <---------------- THIS
+	
+p {
+    Color: blue;
+}
+
+Selectors
+•	Used to determine which HTML element to apply styles to
+
+Declaration blocks
+•	Consist of one or more styles rules, enclosed in curly braces{}
+
+Declarations
+•	Are style rules, written in property:value; pairs
+
+------------------------------------------------------------------------------
+
+Font-size: 50px;
+Color: blue;
+
+Properties
+•	Determine the type of style
+Values
+•	Are specific to the property and vary depending on the property
+
+----------------------------------------------------------------------
+
+body {
+    backgound:lightblue;
+}
+
+body is the selector
+background is the property
+lightblue is the value
+
+-------------------------------------------------------------------
+
+Type Selectors - www.w3.org/TR/CSS21/propidx.html
+    Match the HTML by using the element name
+    
+h1 {
+    color: blue;
+}
+
+Then applied to all selectors that match this (^^^) selector pattern:
+<h1>This heading is blue.</h1>
+<p>This paragraph is not blue.</p>
+<h1>This heading is blue</h1>
+<h2>This heading is not blue</h2>
+
+------------------------------------------------------------------
+
+Class and ID Attributes
+    Class and ID attributes are used to attach extra info to HTML elemnts
+    
+<tag attribute="value"></tag>
+<p class="example"></p>
+<div id="example"></div>
+
+They can be added in any HTML elemnt and always in theopening HTML tag
++++++++++++++++
+Class Selector
+    Class attribute values can be named anyti8ng and defined by you (the programmer).
+    The same class can be used multiple times per page.
+    The class value is the selector, starting with a period (to distinguish it from a type selector.
+    
+    
+    
+    <p class="highlighted">I want to highlight this.</p>
+    <p>This is not highlighted.</p>
+    
+    .highlighted{
+        background:yellow;
+    }
+++++++++++++++++
+ID selector
+    You define the value
+    IDs can only be used once per page and must have a unique value
+    The value is the selector, starting with a # symbol
+
+    
+    <p id="highlighted">This paragraph is highlighted.</p>
+    <p>This paragraph is not highlighted.</p>
+    
+    #highlighted{
+        background: yellow;
+    }
+++++++++++++++++++++++
+Pseudo-Class Selectors
+    Pseudo-class selectors specify a state of the element.
+    Keywords are combined with another selector, using a colon.
+    
+    a:hover 
+    {
+        color: black;
+    }
+    
+    <a href="http://website.com">link</a>
+----------------------------------------------------------------------
+Multiple Classes
+    Separate multiple classes with a space
+    Apply differnt styles to each class and they will be independent of eachother. 
+    combine classes, with no space to select both (only applied if attribute contains both class names).
+    Multiple IDs cannot be used in the same HTML element
+    
+    <div class="sytle name"></div>
+    
+    .style{
+        color: blue;
+    }
+    .name {
+        font-siuze: 16px;
+    }
+    
+    .style.name{
+        background: green;
+    }
+    
+    
+    -----------------------------------------------------------------------------
+    Descendent Selectors
+        Use multiple selectors, separated by a space, to match the descendant elements
+        
+        <section>
+        <p>Paragraph with a <a href="#placeholder">Link</a>.</p>
+        </section>
+        
+       section p a {
+            // Only looks for 'a' tags within a 'p' tag
+            /* Will only select links of a paragraph
+        }
+        
+    ---------------------------------------------------------------------------------
+    Pseudo-Class Selectors
+        Pseudo-class selectors specify a state of the element.
+        Keywords are combined with another selector, using a colon.
+        
+        a:hover {
+            color: black;
+        }
+        
+        <a href="http://website.com">link</a>
+    
+    ---------------------------------------------------------------------------------
+    Type Selector
+        Used to select all or most instances of an element
+        
+        p {
+            color: blue;
+        }
+        
+        <p>This is blue.</p>
+        <p>This is blue.</p>
+        <p class="not-blue">This is not blue.</p>
+        
+    --------------------------------------------------------------------------------
+    Class Selector
+        Used for more specific styles that can also be applied to different elements, one or more times per page
+        
+        .highlighted {
+            color: red;
+        }
+        <p class="highlighted">This is red.</p>
+        
+-----------------------------------------------------------------------------------
+ID Selector
+    ID values can only be used once per page; use them for uniqe or global styles that are not repeated (can be used for in page linking)
+    
+    #global-footer {
+        background: gray;
+    }
+    
+    <footer id="global-footer">
+        <p>Just a paragraph.</p>
+    </footer>
+    
+Adding ad id attribute and using the value in the href attirbute will take you to that spot on the page
+
+<h1>Frequently Asked Questions</h1>
+<a href="#qa1">Question 1</a><br>
+
+<p id="qa1"><strong>Answer 1</strong>
+    
+------------------------------------------------------------------------------------
+Descendant Selectors
+    Used to apply styles to an element, based on its parent or ancestor element
+    Try not to go more than 3 levels deep, using more may result in a SLOWER page load
+    
+    
+    ul li {
+        color: blue;
+    }
+    
+    <ul>
+        <li>This is blue.</li>
+        <li>This is blue.</li>
+    </ul>
+    <ol>
+        <li>This is not blue.</li>
+        <li>This is not blue.</li>
+    </ol>
+
++++++++++++++++++
+<main>
+    <section>
+        <div>
+            <p>Paragraph.</p>
+            <p>Another paragraph.</p>
+        </div>
+    </section>
+</main>
+
+main section dive p {
+    color: blue;
+}
+
+MORE EFFICIENT
+section p {
+    color: red;
+}
+    
+    
+------------------------------------------------------------------------------------
+Combining Selectors
+    Combine selectros to apply the same style to different elements, in one declaration block
+    When multiple selectors are combined, always declare full combination if you're using descendat selectors. Each selector in the combination is independent of each other. 
+    
+    h1, h2, .class-name {
+        font-size: 12px;
+    }
+    
+    .class-name h1,h2 {}  -----------> .class name h1{}
+                                        h2{}
+
+-----------------------------------------------------------------------------------
+Comments: /*text text text*/
+
+----------------------------------------------------------------------------------
+CSS color values (colours.nielorangepeel.com) (coolors.co) (radoma11y.com)
+    keywords: use the actual name
+        color: black;
+        
+    hex code: number sign (#) followed by six characters (0-9,A-F)
+        color: #000000;
+        
+    RGB: red, green, and blue values on a scale between 0 and 255
+        color: rgb(0,0,0);
+
+--------------------------------------------------------------------------------
+CSS code examles
+
+body 
+{
+    color: green;
+}
+h1 
+{
+    color: orange;
+}
+.demo
+{
+    color: blue;
+}
+#demo
+{
+    color: red;
+}
+main h2
+{
+    color: yellow;
+}
+h1, h2, h3
+{
+    background: red;
+}
+a {
+    background: purple;
+    padding: 6px;
+}
+a:link {
+    color: white;
+}
+a:visited {
+    background: lightblue;
+}
+a:active {
+    border: 1px solid black;
+}
+a:hover {
+    background: none;
+}
+p:hover {
+    background: blue;
+}
+a:focus,
+input:focus {
+    outline: 1px solid black;
+}
+
+-----------------------------------------------------------------------------------
+Cascading Style Sheets
+    CSS rules cascade and are executed from top to bottom
+    
+    h1 {
+        color: black
+    }
+    
+    h1 {
+        color: blue; /* this style will be applied
+    }
+    
+    p {
+        color: pink;
+        color: red; /* This style will be applied
+    }
+    
+    ------------------------------------------------------------------------------
+    CSS Inheritance 
+        Styles can be inherited from ancestor to descendant elements
+        Links will not inherit color because it already has a specific default style
+            To change color of links, have to select it directly by using <a> as the selector
+        
+        <body><!-- parent of h1 and p -->
+            <h1>Heading</h1><!-- child of body -->
+            <p>Paragraph.</p><!-- child of body -->
+        </body>
+        
+        body {
+            color: green; /* h1 and p will inherit this style
+        }
+        
+--------------------------------------------------------------------------------------
+CSS Specificity
+    Specificity determines which CSS rule will take precedence. The selector with the higher specificity will be applied. 
+    
+    h1 {
+        color: #222222;
+    }
+    .classname {
+        color: blue; /* higher specificity ranking */
+    }
+    
+-----------------------------------------------------------------------------------
+Specificity Rankings - cssspecificity.com OR specificity.keegan.st
+    The selector with the higher specificity ranking will take precedence
+    
+    TO REDUCE SPECIFICITY ISSUES, YOU CAN START WITH GENERAL SELECTORS, AND THEN GET MORE SPECIFIC AS NEEDED
+    
+    Type selectors (h1) ------ lowest
+    Class selectors (.exmaple)
+    ID selectors (#example) -- highest
+    
+    
+    /* Type selector
+    h1 {
+        color: red;
+    }
+    
+    /* Class selector
+    .example {
+        color: blue;
+    }
+    
+    /* ID selector
+    #example {
+        color: purple         <------------------------ takes this style
+    }
+    
+    
+-----------------------------------------------------------------------------------
+Typography
+    The study of the design and use of type for communication 
+    
+Typeface
+    A set of fonts, designed with common characterisitcs and composed of glyphs
+
+Font
+    Individual files that are part of a typeface
+    
++++++++++++++
+Serif and Sans Serif Typefaces
+    Serif typefaces have small decorative lines
+    Sans Serif do not have decorative lines
+    
+++++++++++++
+Script and Decorative Typefaces
+    Script type faces have a hand-lettred look
+    Decorative type faces are distinc and ornamental (good for adding a bit of embellishement)
+    
++++++++++++
+Monospace Typeface
+    In monospace typefaces, each character uses the same amount of horizontal space
+    
+-------------------------------------------------------------------------------------
+Typefaces in CSS
+    Use font-family to set the typeface
+    Recommended to add single or double quotes around font families with spaces in their names
+    
+    body {
+        font-family: 'Hevetica Neue';
+    }
+    body {
+        font-family: "Helvetica Neue";
+    }
+    
+---------------------------------------------------------------------------------------
+Web-safe fonts (cssfontstack.com)
+    Fonts that are commonly preinstalled on cmoputers or devices include Arial and TNR
+    Fonts may vay among OS
+    
+    h2 {
+        font-family: "Helvetica Neue", Arial, sans-serif;
+    }
+    
+    Choose similar fonts, Use commas to separate each option
+    Use generic font family as last option
+    ALWAYS DECLARE GENERIC FONTS WITHOUT QUOTES (serif, sans serif, cursive, fantasy, monospace)
+    
+---------------------------------------------------------------------------------------
+Web fonts (css-tricks.com/snippets/css/using-font-face/) AND (fontsquirrel.com)
+    Not required to be installed on devices and computers
+    Two methods for usage (internal or external source)
+
+++++++++++++++
+Internal Font Source
+    Downloaded font files
+    Included in your project files like other files (CSS files, images, HTML files...)
+    Declare and link to font files using @font-face
+        Used to set the font name and link to the font files
+        
+        @font-face {
+            font-family: 'Museo Snas';
+            src: url('../fonts/museo-sans.ttf');
+        }
+        
+        body {
+            font-family: 'Museo Sans', Arial, sans-serif;
+        }
+        
++++++++++++++
+@font-face
+    Different browsers support different file formats. The WOFF and WOFF2 formats are supported by modern browsers. 
+    
+    @font-face {
+        font-family: 'MuseoSans';
+        src: url('../fonts/museo-sans.woff2') format('woff'),
+             url('../fonts/museo-sans.woff') format('woff');
+    }
+    
+    You should list multiple file formats, separted by a comma
+
+++++++++++++++
+External Font Source
+    Third part online services (typekit, google fonts <- free, etc)
+    No need to downoad any files
+    Link direclty to CSS and font files hosted online
+    
+--------------------------------------------------------------------------------------
+Font Size: px, em, and rem (tympanus.net/codrops/css_reference/length/)
+    There are different units for specifying the font size
+    Relative values are calculated based on the nearest ancestor element
+    Absolute values are not affected by ancetor elements
+    
+Font Size: px
+    Measure screens in pixels
+    Absolute value; great for accuracy
+    Use whole numbers and avoid decimals
+    Browser default = 16px
+    
+++++++++++++++
+Front size: em
+    named after the letter "m"
+    relative unit
+    1em = inherited font-size
+    If no font-size is declared, 1em = default = 16px
+    
+    div {
+        font-size: 2em;
+        font-size = 20px;
+    }
+    p {
+        font-size: 1em;
+        font-size: 1.5em;
+        font-size: 0.5em;
+    }
++++++++++++++
+Font size: rem
+    Newer unit, which is similar to "em"
+    If no font-size is declared, 1rem = 1em = default = 16px
+    Relative unit but only to the root element (HTML)
+    Gives you the same flexibility as "em" with ma more straightforward approach
+    
+    html {
+        font-size: 30px;
+    }
+    div {
+        font-size: 20px;
+    }
+    p {
+        font-size: 1rem; <---- sized according to html, not div, because html is the                            root
+    }
+    
+------------------------------------------------------------------------------------
+Additional font properties (develpoer.mozilla.org/en-US/docs/Web/CSS/CSS_Fonts)
+
+font-weight
+    font-weight is the thickness of boldness of typefaces
+    Number values are 100, 200, 300, 400, ... 900
+    Number values will map to the nearest typeface available
+    
+    h1{
+        font-weight: 400;
+    }
+    
+    font-weight: keywords
+        normal = 400;bold = 700
+        lighter and bolder - relative to the inhertied font-weight
+    
++++++++++++++++++
+font-style
+    used to add or remove an italic style
+    three values: italic, oblique, and normal
+    
+    p {
+        font-style: italic;
+    }
+    em {
+        font-style: normal;
+    }
+
+++++++++++++++++
+line-height (line height should be larger than the font size)
+    Propety sets theheight of the space between two lines of text
+    It is closely related to font-size
+    It can use different value types: px, %, ems, rems, or unitless
+    
+    p {
+        font-size: 10px;
+        line-height: 10px;
+        line-height: 150%; <---- good practice
+        line-height: 1.5; <----- good practice
+    }
+    
+++++++++++++
+text-decoration
+    can be used to remove or add an underline above, below, or through text
+    
+    p {
+        text-decoration: overline;
+        text-decoration: underline;
+        text-decoration: line-through;
+        text-decoration: none;
+    }
+    
+++++++++++++
+text-transform
+    specifies the letter casing
+    
+    p {
+        text-transform: capitalize;
+        text-transform: uppercase;
+        text-transform: lowercase;
+        text-transform: none;
+    }
+
++++++++++++++
+text-align
+    can be used to center align text
+    You can add it to the HTML element itself or the parent element
+    This style is inherited by descendant elements
+    
+    h1, h2 {
+        text-align: center;
+    }
+    header {
+        text-align: center;
+    }
+-------------------------------------------------------------------------------------
+
